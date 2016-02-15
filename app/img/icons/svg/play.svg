@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="66px" height="66px" viewBox="0 0 66 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.2 (15857) - http://www.bohemiancoding.com/sketch -->
+    <title>play icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="play-icon" sketch:type="MSArtboardGroup">
+            <g id="Oval-7-+-Triangle-1" sketch:type="MSLayerGroup" transform="translate(1.000000, 1.000000)">
+                <circle id="Oval-7" stroke="#FFFFFF" stroke-width="3" sketch:type="MSShapeGroup" cx="32" cy="32" r="32"></circle>
+                <path d="M27.3892864,44.381696 C25.5174352,45.551603 24,44.7168371 24,42.5012639 L24,22.9987361 C24,20.7902951 25.5121491,19.9450932 27.3892864,21.118304 L42.6107136,30.631696 C44.4825648,31.801603 44.4878509,33.6950932 42.6107136,34.868304 L27.3892864,44.381696 Z" id="Triangle-1" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

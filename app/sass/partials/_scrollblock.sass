@@ -1,0 +1,93 @@
+.slider__block
+	z-index: 0
+	width: 100%
+	min-height: 100%
+	min-height: calc(100vh +80px)
+	height: calc(100vh + 80px)
+	background: #fff
+	overflow: hidden
+	+r(768)
+		min-height:  700px
+		height: auto
+	.slider__block-in
+		@extend %in
+		display: flex
+		flex-direction: row
+		height: 100%
+		align-items: center
+		+r(1024)
+			flex-direction: column
+	.block-text
+		width: 500px
+		padding-right: 0px
+		margin-top: -50px
+		+r(1024)
+			flex: 0 1 41%
+			width: 100%
+			padding-right: 40px
+			padding-left: 40px
+
+		+r(414)
+			flex: 0 1 50%
+			padding-right: 20px
+			padding-left: 20px
+		+r(320)
+			flex: 1
+			margin-top: 0px
+		.block__title
+			padding-bottom: 50px
+			text-align: left
+			+r(320)
+				flex: 1
+		.block__expresion
+			+r(375)
+				overflow-x: hidden
+				overflow-y: auto
+				height: 36vh
+				max-height: 36%
+				max-height: 36vh
+		.popup
+			margin-top: 50px
+			+r(320)
+				margin-top: 35px
+				
+	.slider-box__container
+		flex: 1
+		margin: auto
+		+r(1024)
+			flex: 0 1 28%
+		+r(414)
+			flex: 0 1 40%
+		+r(320)
+			flex: 1
+		.slider-box__container-inner
+		.slider
+			width: 622.7px
+			height: 484.3px
+			overflow: hidden
+			+r(1024)
+				width: calc(622.7px/1.5)
+				height: calc(484.3px/1.5)
+			+r(414)
+				width: calc(622.7px/2)
+				height: calc(484.3px/2)
+			+r(320)
+				width: calc(622.7px/3)
+				height: calc(484.3px/3)
+		.slider__track
+			+tr(opacity 1.5s)
+		.slider-item
+			width: 622.7px
+			height: 484.3px
+			+r(1024)
+				width: calc(622.7px/1.5)
+				height: calc(484.3px/1.5)
+			+r(414)
+				width: calc(622.7px/2)
+				height: calc(484.3px/2)
+			+r(320)
+				width: calc(622.7px/3)
+				height: calc(484.3px/3)
+			img
+				width: 100%
+				height: auto

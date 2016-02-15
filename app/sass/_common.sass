@@ -1,0 +1,129 @@
+body
+	font-family: 'OpenSans', Arial, sans-serif
+	font-size: 15px
+	+font-smoothing
+	background: grey
+	color: #FFF
+//variables
+*
+	+box
+
+$orange: #ee931e
+$blue-light: #479df3
+$blue-dark: #147de7
+$menu-back: #051523
+$red: #fcead1
+$color-dark: #383838
+
+$orange-btn: #ffb300
+$blue-btn: #479df3
+$footer-dark: #323232
+$footer-light: #676767
+$social: #f7c042
+$footer-grey: #979797
+
+%in
+	width: 1170px
+	//width: 100%
+	margin: 0 auto
+	max-width: 1170px
+	+r(1024)
+		width: 100%
+
+
+.out
+	overflow: hidden
+	color: black
+
+h2
+	line-height: 1.1
+	+f(l,36)
+	+r(414)
+		font-size: 35px
+	+r(375)
+		font-size: 35px
+
+
+h3
+	+f(l,16,1)
+	+r(414)
+		font-size: 18px
+	+r(375)
+		font-size: 16px
+	+r(320)
+		font-size: 12px
+
+
+// +r(767)
+// 	.h1
+// 		font-size: 32px
+// 	.h2
+// 		font-size: 32px
+
+.svg-icon
+	display: inline-block
+	width: 34px
+	height: 34px
+	fill: transparent
+	margin-left: 5px
+	svg
+		display: block
+		width: 100%
+		height: 100%
+
+.svg-subscribe
+	fill: #f5a623
+	width: 45px
+	height: 45px
+
+.btn
+	display: inline-block
+	background: none
+	box-sizing: border-box
+	text-transform: uppercase
+	text-align: center
+	position: relative
+	z-index: 2
+	+middle
+	background: transparent
+	margin-right: 0
+	text-decoration: none
+	overflow: hidden
+	border-radius: 100px
+	+f(semi, 16)
+	+tr(opacity .5s)
+	font-size: 0
+	white-space: nowrap
+
+	line-height: 48px
+	height: 48px
+	.btn__text
+		padding: 0px 18px 0px 13px
+		//font-size: 16px
+		color: #fff
+		font-size: 16px
+
+	.btn__inner
+		font-size: 0
+		line-height: 0px
+		border: 3px solid transparent
+		display: inline-block
+		vertical-align: middle
+		overflow: hidden
+		& > *
+			+middle
+	&:hover
+		opacity: .8
+
+.btn__text
+	position: relative
+	z-index: 1
+	
+.btn_orange
+	background-color: $orange-btn
+.btn_blue
+	background-color: $blue-btn
+
+.btn_big
+	height: 105px
+	width: 105px

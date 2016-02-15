@@ -1,0 +1,160 @@
+.footer__block
+	z-index: 0
+	height: 224px+515px
+	color: $footer-grey
+	+f(l)
+	+r(768)
+		height: auto
+	.footer__learn
+		height: 224px
+		background: #fff radial-gradient(circle at 50% 50% ,white 15%,$red 15.8%,white 15%,white 30%,$red 30.8%,white 30%,white 45%,$red 45.8%,white 45%,white 60%,$red 60.8%,white 60%)
+		+r(768)
+			height: auto
+	.footer__learn-in
+
+		width: percentage(943/1440)
+		display: flex
+		text-align: center
+		height: 100%
+		margin: auto
+		align-items: center
+		+r(1024)
+			width: 100%
+		+r(768)
+			flex-direction: column
+		> *
+			flex: 1
+			justify-content: space-around
+			margin: auto
+		+r(768)
+			padding: 30px 0
+		p:first-child
+			//padding-top: 20px
+		p
+			+f(l,28)
+			+r(768)
+				flex: 0 1 52px
+		a
+			+tr(opacity .5s)
+			line-height: 100px
+			svg
+				height: 70px
+				width: 230px
+				display: inline-block
+				vertical-align: middle
+			&:hover
+				opacity: .7
+			+r(768)
+				order: 2
+	.footer__down
+		height: 515px
+		+r(768)
+			height: auto
+		+g($footer-light, $footer-dark)
+		.footer__down-in
+			+clr
+			@extend %in
+			//+r(1200)
+			padding: 0 4%
+			+r(768)
+				display: flex
+				flex-direction: column
+				height: auto
+				justify-content: center
+				text-align: center
+		.footer__col,
+			float: left
+			width: 33%
+			padding-top: 84px
+			h2
+				color: white
+			+r(768)
+				width: 100%
+		.footer__contacts
+
+			.footer__contacts__block
+				margin-top: 42px
+				a
+					padding-top: 15px
+					display: block
+					text-decoration: none
+					color: $footer-grey
+				p,a
+					font-size: 16px
+			.footer__contacts__social
+				padding-top: 30px
+				li
+					display: inline-block
+					margin-right: 21px
+					a
+						text-decoration: none
+						&:hover
+							opacity: .5
+					span
+						+f(a, 23)
+						color: $social
+			.copyright
+				margin-top: 42px
+				font-size: 14px
+
+
+		.footer__instagram
+			.footer__photo
+				margin-top: 42px
+				max-width: 250px
+				font-size: 0
+				+r(768)
+					margin-left: auto
+					margin-right: auto
+				img
+					display: inline-block
+					margin: 0 16px 16px 0
+			.follow_btn
+				display: inline-block
+				margin-top: 21px
+				text-decoration: none
+				padding: 3px
+				border: 1px solid $footer-grey
+				color: $footer-grey
+				border-radius: 3px
+				&:hover
+					opacity: .5
+					
+		.footer__form
+			+r(768)
+				max-width: 500px
+				margin-left: auto
+				margin-right: auto
+				padding: 50px 20px 50px 20px
+			#send
+				margin-top: 42px
+				+r(768)
+					margin-bottom: 42px
+			.input-group:not(:last-child)
+				height: 40px
+				line-height: 0
+				border: none
+				border-radius: 0px
+				background-color: transparent
+				width: 100%
+				margin-bottom: 3px
+				input
+					background-color: transparent
+					border: none
+					border-radius: 0px
+					-webkit-appearance: none
+					line-height: 40px
+					border-bottom: 1px solid #9B9B9B
+					box-shadow: inset 0 1px 1px rgba($footer-dark, .075);
+					width: 100%
+					color: white
+					+f(l,16)
+					&:focus
+						border-color: white
+						box-shadow: none
+						outline: 0
+
+			.input-group:last-child
+				margin-top: 30px
+				float: right
+			

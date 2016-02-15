@@ -1,0 +1,101 @@
+.intro
+	z-index: 1
+	height: 100vh
+	background: $orange
+	background-image: url("../img/bg1.png")
+	background-position: 50% 50%
+	background-size: 2000px 1123px
+	width: 100%
+	position: relative
+	overflow: hidden
+	min-height: 666px
+.table
+	display: table
+	table-layout: fixed
+	position: relative
+	overflow: hidden
+	height: 100%
+	max-width: 966px
+	width: 100%
+	margin: 0 auto
+.intro__in
+	position: relative
+	height: 100%
+	padding-top: 70px
+	display: table-cell
+	vertical-align: middle
+	text-align: center
+	max-width: 1170px
+	font-size: 0px
+	+r(768)
+		padding: 0px
+	.hand
+		width: 50%
+		max-height: 579px
+		display: inline-block
+		vertical-align: middle
+		position: relative
+		+r(768)
+			display: none
+	.content
+		width: 50%
+		display: inline-block
+		vertical-align: middle
+		+r(768)
+			width: 100%
+	.diamond
+		width: 100%
+		img
+			display: block
+			width: 155px
+			height: auto
+			margin: 0 auto
+			+r(320)
+				width: 114px
+		+r(768)
+			padding-top: 0px
+	.sktch
+		width: 100%
+		+rmin(1500)
+			margin-top: 20px
+		img
+			display: block
+			margin: 0 auto
+			width: 348px
+			height: auto
+			+r(320)
+				width: 300px
+
+	.expresion
+		font-size: 22px
+		text-align: center
+		margin: 0 auto
+		margin-bottom: 30px
+		color: white
+		+rmin(1500)
+			margin-top: 20px
+	.appstore-cover
+		width: 100%
+		text-align: center
+		.svg-appstore
+			width: 229.2px
+			height: 65.8px
+			+tr(all .5s)
+			&:hover
+				opacity: .7
+.anchor-down
+	position: absolute
+	bottom: 40px
+	left: 50%
+	transform: translate(-50%, 0)
+	cursor: pointer
+	+r(480)
+		bottom: 25px
+	&:hover
+		opacity: .5
+
+	i
+		display: block
+		margin: 0 auto
+		@include retina-sprite($s-arrow-group)
+

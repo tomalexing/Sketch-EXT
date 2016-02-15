@@ -1,0 +1,197 @@
+#video-popup.modal
+	display: none
+	position: absolute
+	z-index: 100
+	background: $color-dark
+	left: 50.5%
+	bottom: 0
+	width: 868px
+	height: 483px
+	transform: translate(-50%, 0)
+	overflow: hidden
+
+	+r(768)
+		width: 580px
+		left: 50%
+		height:	317px
+	+r(580)
+		width: 100%
+
+	&.is-open
+		display: block
+		.modal__inner
+			opacity: 1
+			transform: none
+
+	.modal__inner
+		display: table
+		width: 100%
+		height: 100%
+		//transform: translate(0, 100%)
+		opacity: 0
+		transition: 0.5s ease
+		transition-property: opacity
+
+	.modal__body
+		position: relative
+		display: table-cell
+		vertical-align: middle
+		text-align: center
+		//padding:  20px
+		width: 100%
+		height: 100%
+		overflow: auto
+		box-sizing: border-box
+		overflow: hidden
+	.modal__close
+		background: none
+		position: absolute
+		z-index: 2
+		top: 0
+		right: 0
+		padding: 20px
+		font-size: 00px
+		+hide-text
+		span
+			position: absolute
+			background-color: #fff
+			box-shadow: none
+			display: block
+			height: 3px
+			margin-top: 4px
+			position: relative
+			width: 25px
+			transform: rotate(45deg)
+			top: -5px
+			+tr(opacity .5s)
+			&:after
+				content: ""
+				position: absolute
+				transform: rotate(-90deg)
+				top: -9px
+				background-color: #fff
+				box-shadow: none
+				display: block
+				height: 3px
+				margin-top: 4px
+				position: relative
+				top: -4px
+				width: 25px
+				+tr(opacity .5s)
+				&:hover
+					opacity: .7
+
+			&:hover
+				opacity: .7
+
+	.modal__player
+		//padding: 40px 0 0
+#inner-popup.modal,
+#popup-download.modal
+	display: none
+	position: fixed
+	z-index: 100
+	background: rgba($color-dark, .2)
+	left: 0
+	bottom: 0
+	top: 0
+	right: 0
+	width: 100%
+	width: 100vw
+	min-height: 100%
+	height: 100vh
+	overflow: hidden
+
+	&.is-open
+		display: block
+		.modal__inner
+			opacity: 1
+			transform: none
+
+	.modal__inner
+		display: table
+		width: 100%
+		height: 100%
+		//transform: translate(0, 100%)
+		opacity: 0
+		transition: 0.5s ease
+		transition-property: opacity
+
+	.modal__body
+		position: relative
+		display: table-cell
+		vertical-align: middle
+		text-align: center
+		//padding:  20px
+		width: 80%
+		height: 80%
+		overflow: auto
+		box-sizing: border-box
+		overflow: hidden
+	.modal__close
+		background: none
+		position: absolute
+		z-index: 102
+		top: 0
+		right: 0
+		padding: 20px
+		font-size: 0px
+		+hide-text
+		span
+			position: absolute
+			background-color: #fff
+			box-shadow: none
+			display: block
+			height: 3px
+			margin-top: 4px
+			position: relative
+			width: 25px
+			transform: rotate(45deg)
+			top: -5px
+			+tr(opacity .5s)
+			&:after
+				content: ""
+				position: absolute
+				transform: rotate(-90deg)
+				top: -9px
+				background-color: #fff
+				box-shadow: none
+				display: block
+				height: 3px
+				margin-top: 4px
+				position: relative
+				top: -4px
+				width: 25px
+				+tr(opacity .5s)
+				&:hover
+					opacity: .7
+
+			&:hover
+				opacity: .7
+	
+	.download__buttons-out
+		position: relative
+		z-index: 104
+		height: 220px
+		width: 300px
+		text-align: center
+		vertical-align: middle
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		margin: 0 auto
+		display: flex
+		background: #1a1a1a
+		.download__buttons-in
+			display: flex
+			svg
+				width: 13em
+				height: 5em
+				
+#popup-download.modal .modal__close
+	top: 0
+	right: 0
+	left: 0
+	bottom: 0
+	width: 100%
+	height: 100%
