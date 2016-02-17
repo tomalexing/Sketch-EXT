@@ -109,7 +109,7 @@ function animateMenu(menu, trigger_anchor, anchor_page, trigger_nenu) {
 			$('.out').removeClass('is-menu-fixed');
 		};
 	});
-	console.log($links);
+	//console.log($links);
 	//add active class
 	$links.on('click', function (e) {
 		e.preventDefault();
@@ -179,16 +179,20 @@ function animateMenu(menu, trigger_anchor, anchor_page, trigger_nenu) {
 			}
 		}
 	};
+	function menuToogle() {
+		if ($(window).width() <= 1024) {
 
-	$('.header').delegate('.mobile__menu', 'click', function () {
-		$('.out').toggleClass('active-menu');
-		openMenu();
+			$('.out').toggleClass('active-menu');
+			openMenu();
+		}
 		return false;
-	});
+	};
+
+	$('.header').delegate('.mobile__menu', 'click', menuToogle);
 
 	$download__btn.on('click', function (e) {
 		e.preventDefault();
-		openModal($popup__download);
+		openModal($popup__download, { 'afterOpen': menuToogle });
 	});
 };
 
@@ -201,8 +205,8 @@ openModal = function(selector, options) {
     options = {};
   }
   modal = selector instanceof $ ? selector : $(selector);
-  closeBtn = modal.find('.modal__close');
-  console.log(modal);
+  closeBtn = modal.find('.modal__close').add(modal.find('.modal__close2'));
+  console.log(closeBtn);
   modal.fadeIn(500, function() {
     modal.addClass('is-open');
     return setTimeout(function() {
