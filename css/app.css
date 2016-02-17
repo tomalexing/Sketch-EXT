@@ -3524,7 +3524,7 @@ h2 {
   background: linear-gradient(to bottom, transparent, #fff);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
   .video__block .grad {
     display: none;
   }
