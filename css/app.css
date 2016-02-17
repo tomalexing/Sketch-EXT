@@ -3570,8 +3570,6 @@ h2 {
   width: 100%;
   height: 760px;
   background: linear-gradient(to bottom, #686868, #222222);
-  background-position: 50% 50%;
-  background-size: 2000px 1450px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -3599,6 +3597,7 @@ h2 {
     -ms-flex-direction: column;
     flex-direction: column;
     height: auto;
+    display: block;
   }
 }
 
@@ -3614,6 +3613,7 @@ h2 {
     width: 100%;
     padding: 0 20px;
     height: auto;
+    display: block;
   }
 }
 
@@ -3636,6 +3636,7 @@ h2 {
 
 @media only screen and (max-width: 768px) {
   .course__block .course__block-in .icons__row {
+    display: block;
     padding-left: 0;
     height: auto;
   }
@@ -3716,8 +3717,10 @@ h2 {
 
 @media only screen and (max-width: 768px) {
   .course__block .course__block-in .phone {
+    display: block;
     padding-top: 40px;
     height: auto;
+    text-align: center;
   }
 }
 
