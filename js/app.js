@@ -130,6 +130,9 @@ function animateMenu(menu, trigger_anchor, anchor_page, trigger_nenu) {
 			window.location.hash = target;
 			$win.on("scroll", onScroll);
 		});
+
+		setTimeout(menuToogle, 500);
+
 		return false;
 	});
 	// anchore
@@ -157,10 +160,6 @@ function animateMenu(menu, trigger_anchor, anchor_page, trigger_nenu) {
 			$('.out').addClass('fixfixed');
 		}).on('blur', 'input', function () {
 			$('.out').removeClass('fixfixed');
-		});
-
-		$links.on('click', function (e) {
-			$('.mobile__menu').trigger("click");
 		});
 	}
 
