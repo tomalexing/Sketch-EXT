@@ -3521,11 +3521,12 @@ h2 {
   left: 0;
   height: 300px;
   background: transparent;
+  background: linear-gradient(to bottom, transparent, #fff);
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
   .video__block .grad {
-    background: linear-gradient(to bottom, transparent, #fff);
+    display: none;
   }
 }
 
