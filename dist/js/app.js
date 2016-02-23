@@ -20,14 +20,24 @@ var _mail = require('./modules/mail');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //modal youtube player
+var Instafeed = require("../../node_modules/instafeed.js/instafeed.min.js"); //import  './modules/restore'
 
-_player2.default.initPlayerApi(); //import  './modules/restore'
-
+_player2.default.initPlayerApi();
 new _player2.default.ModalPlayer('#player', '#play');
 //nemu + anchor
 (0, _menu.animateMenu)('.nav', '.anchor-down', '#hdiw');
 new _sliderBox2.default('.slider__block .slider__block-in');
 (0, _mail.mail)('#formOrder');
+(0, _mail.mail)('#send');
+
+var feed = new Instafeed({
+		clientId: '780c9896996d46b8b6a14aedf7ac3c97',
+		get: 'user',
+		userId: '2969569043',
+		accessToken: '326424925.1677ed0.ea4bb5fb450049bab5f54613d08cedc2',
+		template: '<a class="insta" href="{{link}}"><img src="{{image}}" /></a>'
+});
+feed.run();
 
 //$(document).load($(window).bind("resize", openMenu));
 // $(document).load( function(){
@@ -41,7 +51,7 @@ new _sliderBox2.default('.slider__block .slider__block-in');
 // 	});
 // });
 
-},{"./modules/mail":2,"./modules/menu":3,"./modules/modal":4,"./modules/player":5,"./modules/slider-box":7}],2:[function(require,module,exports){
+},{"../../node_modules/instafeed.js/instafeed.min.js":9,"./modules/mail":2,"./modules/menu":3,"./modules/modal":4,"./modules/player":5,"./modules/slider-box":7}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -109,7 +119,7 @@ function animateMenu(menu, trigger_anchor, anchor_page, trigger_nenu) {
 			$('.out').removeClass('is-menu-fixed');
 		};
 	});
-	console.log($links);
+	//console.log($links);
 	//add active class
 	$links.on('click', function (e) {
 		e.preventDefault();
@@ -130,6 +140,7 @@ function animateMenu(menu, trigger_anchor, anchor_page, trigger_nenu) {
 			window.location.hash = target;
 			$win.on("scroll", onScroll);
 		});
+
 		return false;
 	});
 	// anchore
@@ -159,13 +170,30 @@ function animateMenu(menu, trigger_anchor, anchor_page, trigger_nenu) {
 			$('.out').removeClass('fixfixed');
 		});
 
-		$links.on('click', function (e) {
-			$('.mobile__menu').trigger("click");
+		$('' + menu + ' .nav__item').on('click', function (e) {
+			e.preventDefault();
+			setTimeout(menuToogle, 500);
 		});
-	}
+	};
 
-	function openMenu() {
+	// function openMenu(){
+	//     if($(window).width() <= 1024){
+	//     	if(tooglemenu){
+	// 	        $(".header").css({
+	// 	        	"height" : $(window).height()
+	// 	        });
+	// 	        tooglemenu = false;
+	// 		}else{
+	// 			$(".header").css({
+	// 				"height" : "60px",
+	// 			});
+	// 			tooglemenu = true;
+	// 		}
+	//     }
+	// };
+	function menuToogle() {
 		if ($(window).width() <= 1024) {
+			$('.out').toggleClass('active-menu');
 			if (tooglemenu) {
 				$(".header").css({
 					"height": $(window).height()
@@ -176,19 +204,16 @@ function animateMenu(menu, trigger_anchor, anchor_page, trigger_nenu) {
 					"height": "60px"
 				});
 				tooglemenu = true;
-			}
+			};
 		}
+		return false;
 	};
 
-	$('.header').delegate('.mobile__menu', 'click', function () {
-		$('.out').toggleClass('active-menu');
-		openMenu();
-		return false;
-	});
+	$('.header').delegate('.mobile__menu', 'click', menuToogle);
 
 	$download__btn.on('click', function (e) {
 		e.preventDefault();
-		openModal($popup__download);
+		openModal($popup__download, { 'afterOpen': menuToogle });
 	});
 };
 
@@ -201,8 +226,8 @@ openModal = function(selector, options) {
     options = {};
   }
   modal = selector instanceof $ ? selector : $(selector);
-  closeBtn = modal.find('.modal__close');
-  console.log(modal);
+  closeBtn = modal.find('.modal__close').add(modal.find('.modal__close2'));
+  console.log(closeBtn);
   modal.fadeIn(500, function() {
     modal.addClass('is-open');
     return setTimeout(function() {
@@ -323,7 +348,7 @@ module.exports = {
 };
 
 
-},{"scrollmagic":9}],7:[function(require,module,exports){
+},{"scrollmagic":10}],7:[function(require,module,exports){
 var SM, SliderBox, openModal;
 
 SM = require('./scroll-controller');
@@ -364,8 +389,9 @@ SliderBox = (function() {
     this.modal = this.wrapper.find(this.props.modal);
     this.whichSlide = 1;
     this.prevSlide = 0;
-    this._initSlider();
+    this._initPopup();
     if ($(window).width() > 768) {
+      this._initSlider();
       this.initSimpleScene();
     }
     return this;
@@ -465,8 +491,11 @@ SliderBox = (function() {
     });
     this.duration = (this.count + 2) * this.heightSlide;
     if ($(window).width() <= 768) {
-      this.duration = this.heightSlide;
+      return this.duration = this.heightSlide;
     }
+  };
+
+  SliderBox.prototype._initPopup = function() {
     return this.triggerPopup.on('click', (function(_this) {
       return function(e) {
         e.preventDefault();
@@ -542,6 +571,9 @@ function validation(formId) {
 };
 
 },{}],9:[function(require,module,exports){
+// Generated by CoffeeScript 1.9.3
+(function(){var e;e=function(){function e(e,t){var n,r;this.options={target:"instafeed",get:"popular",resolution:"thumbnail",sortBy:"none",links:!0,mock:!1,useHttp:!1};if(typeof e=="object")for(n in e)r=e[n],this.options[n]=r;this.context=t!=null?t:this,this.unique=this._genKey()}return e.prototype.hasNext=function(){return typeof this.context.nextUrl=="string"&&this.context.nextUrl.length>0},e.prototype.next=function(){return this.hasNext()?this.run(this.context.nextUrl):!1},e.prototype.run=function(t){var n,r,i;if(typeof this.options.clientId!="string"&&typeof this.options.accessToken!="string")throw new Error("Missing clientId or accessToken.");if(typeof this.options.accessToken!="string"&&typeof this.options.clientId!="string")throw new Error("Missing clientId or accessToken.");return this.options.before!=null&&typeof this.options.before=="function"&&this.options.before.call(this),typeof document!="undefined"&&document!==null&&(i=document.createElement("script"),i.id="instafeed-fetcher",i.src=t||this._buildUrl(),n=document.getElementsByTagName("head"),n[0].appendChild(i),r="instafeedCache"+this.unique,window[r]=new e(this.options,this),window[r].unique=this.unique),!0},e.prototype.parse=function(e){var t,n,r,i,s,o,u,a,f,l,c,h,p,d,v,m,g,y,b,w,E,S,x,T,N,C,k,L,A,O,M,_,D;if(typeof e!="object"){if(this.options.error!=null&&typeof this.options.error=="function")return this.options.error.call(this,"Invalid JSON data"),!1;throw new Error("Invalid JSON response")}if(e.meta.code!==200){if(this.options.error!=null&&typeof this.options.error=="function")return this.options.error.call(this,e.meta.error_message),!1;throw new Error("Error from Instagram: "+e.meta.error_message)}if(e.data.length===0){if(this.options.error!=null&&typeof this.options.error=="function")return this.options.error.call(this,"No images were returned from Instagram"),!1;throw new Error("No images were returned from Instagram")}this.options.success!=null&&typeof this.options.success=="function"&&this.options.success.call(this,e),this.context.nextUrl="",e.pagination!=null&&(this.context.nextUrl=e.pagination.next_url);if(this.options.sortBy!=="none"){this.options.sortBy==="random"?M=["","random"]:M=this.options.sortBy.split("-"),O=M[0]==="least"?!0:!1;switch(M[1]){case"random":e.data.sort(function(){return.5-Math.random()});break;case"recent":e.data=this._sortBy(e.data,"created_time",O);break;case"liked":e.data=this._sortBy(e.data,"likes.count",O);break;case"commented":e.data=this._sortBy(e.data,"comments.count",O);break;default:throw new Error("Invalid option for sortBy: '"+this.options.sortBy+"'.")}}if(typeof document!="undefined"&&document!==null&&this.options.mock===!1){m=e.data,A=parseInt(this.options.limit,10),this.options.limit!=null&&m.length>A&&(m=m.slice(0,A)),u=document.createDocumentFragment(),this.options.filter!=null&&typeof this.options.filter=="function"&&(m=this._filter(m,this.options.filter));if(this.options.template!=null&&typeof this.options.template=="string"){f="",d="",w="",D=document.createElement("div");for(c=0,N=m.length;c<N;c++){h=m[c],p=h.images[this.options.resolution];if(typeof p!="object")throw o="No image found for resolution: "+this.options.resolution+".",new Error(o);E=p.width,y=p.height,b="square",E>y&&(b="landscape"),E<y&&(b="portrait"),v=p.url,l=window.location.protocol.indexOf("http")>=0,l&&!this.options.useHttp&&(v=v.replace(/https?:\/\//,"//")),d=this._makeTemplate(this.options.template,{model:h,id:h.id,link:h.link,type:h.type,image:v,width:E,height:y,orientation:b,caption:this._getObjectProperty(h,"caption.text"),likes:h.likes.count,comments:h.comments.count,location:this._getObjectProperty(h,"location.name")}),f+=d}D.innerHTML=f,i=[],r=0,n=D.childNodes.length;while(r<n)i.push(D.childNodes[r]),r+=1;for(x=0,C=i.length;x<C;x++)L=i[x],u.appendChild(L)}else for(T=0,k=m.length;T<k;T++){h=m[T],g=document.createElement("img"),p=h.images[this.options.resolution];if(typeof p!="object")throw o="No image found for resolution: "+this.options.resolution+".",new Error(o);v=p.url,l=window.location.protocol.indexOf("http")>=0,l&&!this.options.useHttp&&(v=v.replace(/https?:\/\//,"//")),g.src=v,this.options.links===!0?(t=document.createElement("a"),t.href=h.link,t.appendChild(g),u.appendChild(t)):u.appendChild(g)}_=this.options.target,typeof _=="string"&&(_=document.getElementById(_));if(_==null)throw o='No element with id="'+this.options.target+'" on page.',new Error(o);_.appendChild(u),a=document.getElementsByTagName("head")[0],a.removeChild(document.getElementById("instafeed-fetcher")),S="instafeedCache"+this.unique,window[S]=void 0;try{delete window[S]}catch(P){s=P}}return this.options.after!=null&&typeof this.options.after=="function"&&this.options.after.call(this),!0},e.prototype._buildUrl=function(){var e,t,n;e="https://api.instagram.com/v1";switch(this.options.get){case"popular":t="media/popular";break;case"tagged":if(!this.options.tagName)throw new Error("No tag name specified. Use the 'tagName' option.");t="tags/"+this.options.tagName+"/media/recent";break;case"location":if(!this.options.locationId)throw new Error("No location specified. Use the 'locationId' option.");t="locations/"+this.options.locationId+"/media/recent";break;case"user":if(!this.options.userId)throw new Error("No user specified. Use the 'userId' option.");t="users/"+this.options.userId+"/media/recent";break;default:throw new Error("Invalid option for get: '"+this.options.get+"'.")}return n=e+"/"+t,this.options.accessToken!=null?n+="?access_token="+this.options.accessToken:n+="?client_id="+this.options.clientId,this.options.limit!=null&&(n+="&count="+this.options.limit),n+="&callback=instafeedCache"+this.unique+".parse",n},e.prototype._genKey=function(){var e;return e=function(){return((1+Math.random())*65536|0).toString(16).substring(1)},""+e()+e()+e()+e()},e.prototype._makeTemplate=function(e,t){var n,r,i,s,o;r=/(?:\{{2})([\w\[\]\.]+)(?:\}{2})/,n=e;while(r.test(n))s=n.match(r)[1],o=(i=this._getObjectProperty(t,s))!=null?i:"",n=n.replace(r,function(){return""+o});return n},e.prototype._getObjectProperty=function(e,t){var n,r;t=t.replace(/\[(\w+)\]/g,".$1"),r=t.split(".");while(r.length){n=r.shift();if(!(e!=null&&n in e))return null;e=e[n]}return e},e.prototype._sortBy=function(e,t,n){var r;return r=function(e,r){var i,s;return i=this._getObjectProperty(e,t),s=this._getObjectProperty(r,t),n?i>s?1:-1:i<s?1:-1},e.sort(r.bind(this)),e},e.prototype._filter=function(e,t){var n,r,i,s,o;n=[],r=function(e){if(t(e))return n.push(e)};for(i=0,o=e.length;i<o;i++)s=e[i],r(s);return n},e}(),function(e,t){return typeof define=="function"&&define.amd?define([],t):typeof module=="object"&&module.exports?module.exports=t():e.Instafeed=t()}(this,function(){return e})}).call(this);
+},{}],10:[function(require,module,exports){
 /*!
  * ScrollMagic v2.0.5 (2015-04-29)
  * The javascript library for magical scroll interactions.

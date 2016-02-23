@@ -1,7 +1,9 @@
 {% macro svgicon(name, className) %}
-<svg class="svg-icon svg-{{name}}{% if className %} {{className}}{% endif %}">
-  <use xlink:href="img/sprite.svg#svg-{{name}}"></use>
-</svg>
+<img class="svg-icon svg-{{name}}{% if className %} {{className}}{% endif %}" src="img/{{name}}.svg"> 
+{% endmacro %}
+
+{% macro pngicon(name, className) %}
+<img class="png-icon png-{{name}}{% if className %} {{className}}{% endif %}" src="img/{{name}}.png"> 
 {% endmacro %}
 
 {% macro _btnInner(text) %}

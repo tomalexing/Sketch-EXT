@@ -74,13 +74,18 @@
 		color: white
 		+rmin(1500)
 			margin-top: 20px
-	.appstore-cover
+	.store-cover
 		width: 100%
 		text-align: center
-		.svg-appstore
-			width: 229.2px
-			height: 65.8px
-			+tr(all .5s)
+
+		a
+
+			display: inline-block
+			padding: 10px
+			&:last-child
+				//margin-right: 0px
+				//padding-bottom: 0px
+			+tr(opacity .5s)
 			&:hover
 				opacity: .7
 .anchor-down
@@ -94,8 +99,8 @@
 	&:hover
 		opacity: .5
 
-	i
+	img
 		display: block
 		margin: 0 auto
-		@include retina-sprite($s-arrow-group)
+
 

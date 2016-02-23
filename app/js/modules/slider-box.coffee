@@ -37,8 +37,9 @@ class SliderBox
     #   "onScroll":  ->
     #     SM.controller.update()
     #     console.log SM.controller
-    do @_initSlider
+    do @_initPopup
     if $(window).width() >  768
+      do @_initSlider
       do @initSimpleScene
 
     return @
@@ -111,6 +112,7 @@ class SliderBox
     if $(window).width() <= 768
       @duration = @heightSlide
 
+  _initPopup: ->
     @triggerPopup.on 'click', (e) =>
       do e.preventDefault
       openModal @modal

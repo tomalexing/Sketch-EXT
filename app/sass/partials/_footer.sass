@@ -1,6 +1,6 @@
 .footer__block
 	z-index: 0
-	height: 224px+515px
+	height: 224px+415px
 	color: $footer-grey
 	+f(l)
 	+r(768)
@@ -12,12 +12,13 @@
 			height: auto
 	.footer__learn-in
 
-		width: percentage(943/1440)
+		width: 70%
 		display: flex
 		text-align: center
 		height: 100%
 		margin: auto
 		align-items: center
+		color: #000
 		+r(1024)
 			width: 100%
 		+r(768)
@@ -47,7 +48,7 @@
 			+r(768)
 				order: 2
 	.footer__down
-		height: 515px
+		height: 415px
 		+r(768)
 			height: auto
 		+g($footer-light, $footer-dark)
@@ -70,8 +71,11 @@
 				color: white
 			+r(768)
 				width: 100%
+				
 		.footer__contacts
-
+			+r(768)
+				order: 3
+				padding: 0px 0px 50px 0px
 			.footer__contacts__block
 				margin-top: 42px
 				a
@@ -99,21 +103,30 @@
 
 
 		.footer__instagram
+			+r(768)
+				order: 2
 			.footer__photo
 				margin-top: 42px
 				max-width: 250px
+				max-height: 160px
 				font-size: 0
 				+r(768)
 					margin-left: auto
 					margin-right: auto
-				img
+				.insta
 					display: inline-block
 					margin: 0 16px 16px 0
+					height: 64px
+					width: 64px
+					img
+						height: 100%
+						width: 100%
 			.follow_btn
 				display: inline-block
 				margin-top: 21px
+				
 				text-decoration: none
-				padding: 3px
+				padding: 4px 11px
 				border: 1px solid $footer-grey
 				color: $footer-grey
 				border-radius: 3px
@@ -122,10 +135,12 @@
 					
 		.footer__form
 			+r(768)
+				order: 1
+			+r(768)
 				max-width: 500px
 				margin-left: auto
 				margin-right: auto
-				padding: 50px 20px 50px 20px
+				padding: 50px 20px 0px 20px
 			#send
 				margin-top: 42px
 				+r(768)
@@ -153,8 +168,13 @@
 						border-color: white
 						box-shadow: none
 						outline: 0
-
 			.input-group:last-child
 				margin-top: 30px
 				float: right
-			
+			.inputError
+				input
+					border-bottom: 1px solid #C73636 !important
+			.field-error
+				position: relative
+				top: 6px
+				font-size: 10px 

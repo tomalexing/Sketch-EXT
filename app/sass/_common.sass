@@ -8,19 +8,33 @@ body
 *
 	+box
 
+// ==============================
+// colors
+// ==============================
+// to into
 $orange: #ee931e
-$blue-light: #479df3
-$blue-dark: #147de7
+
+//to menu
 $menu-back: #051523
-$red: #fcead1
+
+// to popup
 $color-dark: #383838
 
+// to button
 $orange-btn: #ffb300
 $blue-btn: #479df3
+
+// to course
+$course-dark: #222222
+
+$course-light: #686868
+
+// to footer
 $footer-dark: #323232
 $footer-light: #676767
 $social: #f7c042
 $footer-grey: #979797
+$red: #fcead1
 
 %in
 	width: 1170px
@@ -34,6 +48,10 @@ $footer-grey: #979797
 .out
 	overflow: hidden
 	color: black
+	
+// ==============================
+// typography
+// ==============================
 
 h2
 	line-height: 1.1
@@ -44,14 +62,6 @@ h2
 		font-size: 35px
 
 
-h3
-	+f(l,16,1)
-	+r(414)
-		font-size: 18px
-	+r(375)
-		font-size: 16px
-	+r(320)
-		font-size: 12px
 
 
 // +r(767)
@@ -59,6 +69,16 @@ h3
 // 		font-size: 32px
 // 	.h2
 // 		font-size: 32px
+.png-icon
+	display: inline-block
+	vertical-align: middle
+
+.png-app_store
+	width: 195.8px
+	height: 58px
+.png-google_play
+	width: 195.8px
+	height: 58px
 
 .svg-icon
 	display: inline-block
@@ -118,7 +138,6 @@ h3
 .btn__text
 	position: relative
 	z-index: 1
-	
 .btn_orange
 	background-color: $orange-btn
 .btn_blue
@@ -127,3 +146,13 @@ h3
 .btn_big
 	height: 105px
 	width: 105px
+	
+
+// present subscribe
+p.sended
+	width: 100%
+	text-align: center
+	height: 143px
+	img
+		height: 100%
+		width: auto

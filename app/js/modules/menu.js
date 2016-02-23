@@ -21,7 +21,7 @@ export function animateMenu(menu, trigger_anchor, anchor_page, trigger_nenu) {
 	
 
 	});
-	console.log($links);
+	//console.log($links);
 	//add active class
 	$links.on('click', function (e) {
 		e.preventDefault();
@@ -42,6 +42,8 @@ export function animateMenu(menu, trigger_anchor, anchor_page, trigger_nenu) {
 			window.location.hash = target;
 			$win.on("scroll",onScroll);
 		});
+
+
 		return false
 	});
 	// anchore
@@ -74,13 +76,30 @@ export function animateMenu(menu, trigger_anchor, anchor_page, trigger_nenu) {
 			$('.out').removeClass('fixfixed');
 			});
 
-		$links.on('click', function (e) {
-			$('.mobile__menu').trigger("click");
-		});
-	}
+			$(''+ menu + ' .nav__item').on('click',function (e) {
+				e.preventDefault();
+				setTimeout(menuToogle,500);
+			});
+	};
 
-	function openMenu(){
-	    if($(window).width() <= 1024){
+	// function openMenu(){
+	//     if($(window).width() <= 1024){
+	//     	if(tooglemenu){
+	// 	        $(".header").css({
+	// 	        	"height" : $(window).height()
+	// 	        });
+	// 	        tooglemenu = false;
+	// 		}else{
+	// 			$(".header").css({
+	// 				"height" : "60px",
+	// 			});
+	// 			tooglemenu = true;
+	// 		}
+	//     }
+	// };
+	function menuToogle() {
+		if($(window).width() <= 1024){
+			$('.out').toggleClass('active-menu');
 	    	if(tooglemenu){
 		        $(".header").css({
 		        	"height" : $(window).height()
@@ -91,19 +110,18 @@ export function animateMenu(menu, trigger_anchor, anchor_page, trigger_nenu) {
 					"height" : "60px",
 				});
 				tooglemenu = true;
-			}
-	    }
+			};
+
+		}
+		return false
 	};
 
-	$('.header').delegate('.mobile__menu','click',function(){
-		$('.out').toggleClass('active-menu');
-		openMenu();
-		return false
-	})
+
+	$('.header').delegate('.mobile__menu','click',menuToogle);
 
 	$download__btn.on('click', (e) => {
 	  e.preventDefault();
-	  openModal($popup__download);
+	  openModal($popup__download, {'afterOpen' : menuToogle});
 	});
 
 };

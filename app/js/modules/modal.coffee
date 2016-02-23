@@ -1,8 +1,8 @@
 openModal = (selector, options = {}) ->
   modal     = if selector instanceof $ then selector else $(selector)
-  closeBtn  = modal.find '.modal__close'
+  closeBtn  =  modal.find('.modal__close').add(modal.find('.modal__close2'))
 
-  console.log modal
+  console.log closeBtn
   modal.fadeIn 500, ->
     modal.addClass 'is-open'
     setTimeout ->
