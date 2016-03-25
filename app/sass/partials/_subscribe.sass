@@ -1,0 +1,89 @@
+.subscribe__block
+	z-index: 1
+	height: 524px
+	width: 100%
+	background-image: radial-gradient(ellipse at 50% 50%, #ffdd91 0%, #f7c042 37%, #f7c042 91%)
+	.subscribe__block-in
+		@extend %in
+		.title
+			padding-top: 80px
+			padding-bottom: 50px
+			width: 600px
+			margin: 0 auto
+			text-align: center
+			+f(l,36,1)
+			color: #945901
+			+r(768)
+				width: 90%
+				padding-top: 84px
+				padding-bottom: 70px
+				h2
+					font-size: 25px !important
+		.input__block
+			max-width: 750px
+			width: percentage(750/1170)
+			height: 70px
+			margin: 0 auto
+			text-align: center
+			position: relative
+			+r(768)
+				width: 90%
+			form
+				display: flex
+				height: 100%
+				width: 100%
+				border-radius: 14px
+				overflow: hidden
+				border: 1px solid $orange
+				background: #fff
+				+clr
+
+			.input__field
+				max-width: 680px
+				width: 90%
+				height: 100%
+				display: inline-flex
+				flex: 1
+				input
+					max-width: 680px
+					width: 100%
+					height: 100%
+					padding: 20px
+					+f(l,24,.7)
+					appearance: none
+					+placeholder-focus
+						color: #DACECE
+				.field-error
+					display: inline-block
+					position: absolute
+					top: 70px
+					left: 0
+					font-size: 15px
+					color: red
+					width: 100%
+			button
+				width:  50px
+				height: 100%
+				background: #fff
+				display: inline-flex
+				svg
+					height: 100%
+					width: 50px
+				+r(768)
+					width:  70px
+		.below
+			padding-top: 70px
+			max-width: 400px
+			width: percentage(750/1170)
+			margin: 0 auto
+			+f(l,18,.6)
+			color: #2e2e2e
+			text-align: center
+			+r(768)
+				width: 350px
+				margin: 0 auto
+				padding-top: 40px
+			+r(480)
+				width: 250px
+				font-size: 16px
+

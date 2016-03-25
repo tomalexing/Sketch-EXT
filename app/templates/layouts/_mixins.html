@@ -1,0 +1,33 @@
+{% macro svgicon(name, className) %}
+<img class="svg-icon svg-{{name}}{% if className %} {{className}}{% endif %}" src="img/{{name}}.svg"> 
+{% endmacro %}
+
+{% macro pngicon(name, className) %}
+<img class="png-icon png-{{name}}{% if className %} {{className}}{% endif %}" src="img/{{name}}.png"> 
+{% endmacro %}
+
+{% macro _btnInner(text) %}
+<span class="btn__text">{{text}}</span>
+{% endmacro %}
+
+{% macro btn(text, className) %}
+<button type="button" class="btn{% if className %} {{className}}{% endif %}">
+  {{_btnInner(text)}}
+</button>
+{% endmacro %}
+
+{% macro btnLink(text, className, href, name, onclick) %}
+<a href="{% if href %}{{href}}{% else %}#{% endif %} " target="_blank" {% if onclick %} onlick="ga('send', 'event', '{{onclick}}', 'PushButton');" {% endif %} 
+  class="btn{% if className %} {{className}}{% endif %}">
+  <span class="btn__inner">
+  {{svgicon(name)}}
+  {{_btnInner(text)}}
+  </span>
+</a>
+{% endmacro %}
+
+{% macro pagiCircle() %}
+<svg width="40" height="40">
+  <circle cx="20" cy="20" r="19"/>
+</svg>
+{% endmacro %}

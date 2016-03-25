@@ -1,0 +1,235 @@
+.modal
+	display: none
+	position: fixed
+	z-index: 100
+	overflow: hidden
+	&.is-open
+		display: block
+		.modal__inner
+			opacity: 1
+			transform: none
+	.modal__inner
+		display: table
+		width: 100%
+		height: 100%
+		//transform: translate(0, 100%)
+		opacity: 0
+		transition: 0.5s ease
+		transition-property: opacity
+	.modal__body
+		position: relative
+		display: table-cell
+		vertical-align: middle
+		text-align: center
+		//padding:  20px
+		width: 100%
+		height: 100%
+		overflow: auto
+		box-sizing: border-box
+		overflow: hidden
+	.modal__close
+		background: none
+		position: absolute
+		z-index: 2
+		top: 0
+		right: 0
+		padding: 20px
+		font-size: 0px
+		cursor: pointer
+		+hide-text
+		span
+			position: absolute
+			background-color: #fff
+			box-shadow: none
+			display: block
+			height: 3px
+			margin-top: 12px
+			position: relative
+			width: 25px
+			transform: rotate(45deg)
+			top: -8px
+			right: -4px
+			+tr(opacity .5s)
+			&:after
+				content: ""
+				position: absolute
+				transform: rotate(-90deg)
+				top: -9px
+				background-color: #fff
+				box-shadow: none
+				display: block
+				height: 3px
+				margin-top: 4px
+				position: relative
+				top: -4px
+				width: 25px
+				+tr(opacity .5s)
+				&:hover
+					opacity: .7
+
+			&:hover
+				opacity: .7
+				
+
+#video-popup.modal
+	position: absolute
+	background: $color-dark
+	left: 50.5%
+	bottom: 0
+	width: 868px
+	height: 483px
+	transform: translate(-50%, 0)
+	+r(768)
+		width: 580px
+		left: 50%
+		height:	317px
+	+r(580)
+		width: 100%
+
+	.modal__player
+		//padding: 40px 0 0
+#inner-popup.modal
+
+	background-image: radial-gradient(circle at 50% 37%, rgba(#ffe084,.7), rgba(#ee931e,.7))
+	left: 0
+	bottom: 0
+	top: 0
+	right: 0
+	width: 100%
+	width: 100vw
+	min-height: 100%
+	height: 100vh
+	.modal__close
+		right: 18px
+	.modal__close2
+		position: absolute
+		top: 0
+		right: 0
+		left: 0
+		bottom: 0
+		width: 100%
+		height: 100%
+	.inner-popup__wrap
+		// display: flex
+		// flex-direction: column
+		position: relative
+		display: block
+		width: 100%
+		height: 100%
+		max-width: 1376px
+		max-height: 726px
+		overflow: auto
+		color: white
+		z-index: 104
+		background: #142230 url(./../img/inner-popup_bg.png) 0 0 no-repeat
+		margin: 0 auto
+		h2
+			display: block
+			padding-top: 84px
+		.inner-cover
+			height: calc(100% - 173px)
+			display: block
+			margin: 50px 0 0 0
+			+clr
+			+r(414)
+				max-height: 400px
+				display: block
+				overflow: auto
+				margin-top: 50px
+				margin-bottom: 50px
+			.inner__pic
+				width: 52%
+				display: block
+				float: left
+				text-align: left
+				height: 100%
+				line-height: 0
+				text-align: center
+				+clr
+				+vertical
+				img
+					display: inline-block
+					vertical-align: bottom
+					max-width: 99%
+				+r(767)
+					display: none
+			.inner__desc
+				display: block
+				width: 42%
+				//float: right
+				text-align: left
+				height: calc(100% - 39px)
+				overflow: auto
+				margin: 0 0 39px 0
+				+vertical
+
+				+r(767)
+					width: 100%
+					height: auto
+				.block__expresion
+					display: inline-block
+					vertical-align: middle
+					overflow: hidden
+					padding: 0px 100px 0 0
+					width: 99%
+					+r(768)
+						padding: 0px 60px 0 0
+					+r(767)
+						padding: 0px 20px
+						width: 98%
+				img
+					padding-top: 53px
+					display: block
+					margin-left: auto
+
+
+				
+#popup-download.modal 
+	background-image: radial-gradient(circle at 50% 37%, rgba(#ffe084,.7), rgba(#ee931e,.7))
+	left: 0
+	bottom: 0
+	top: 0
+	right: 0
+	width: 100%
+	width: 100vw
+	min-height: 100%
+	height: 100vh
+	.modal__close2
+		position: absolute
+		top: 0
+		right: 0
+		left: 0
+		bottom: 0
+		width: 100%
+		height: 100%
+
+	.download__buttons-out
+		position: relative
+		z-index: 104
+		width: 352px
+		height: 379px
+		text-align: center
+		vertical-align: middle
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		margin: 0 auto
+		display: flex
+		color: white
+		opacity: 0.9
+		border-radius: 4px
+		background: #142230 url(./../img/popup-download.png) 0 0 no-repeat
+		color: white
+		+r(320)
+			width: 280px
+		h2
+			color: white
+			padding-bottom: 70px
+		.download__buttons-in
+			display: flex
+			svg
+				width: 13em
+				height: 5em
+	.download__buttons-in
+		a
+			padding-bottom: 24px

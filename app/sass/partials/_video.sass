@@ -1,0 +1,45 @@
+.video__block
+	z-index: 1
+	position: relative
+	height: 815px
+	background: #fff
+	+r(768)
+		height: 500px
+	.grad
+		position: absolute
+		top: -300px
+		right: 0
+		left: 0
+		width 100%
+		height: 300px
+		background: transparent
+		+g(transparent ,#fff)
+		+r(1024)
+			display: none
+	.title
+		padding: 130px 0 105px 35px
+		color: black
+		+f(l,36)
+		text-align: center
+		position: relative
+		z-index: 1
+		+r(768)
+			padding: 84px 20px 45px
+			text-align: left
+
+
+
+	img
+		position: absolute
+		bottom: 0
+		left: 50%
+		transform: translate(-50%,0)
+		width: auto
+		height: 100%
+	#play
+		position: absolute
+		top: 64%
+		left: 50%
+		transform: translate(-50%, 0)
+	.block-text
+	

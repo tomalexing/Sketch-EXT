@@ -1,0 +1,181 @@
+.header
+	position: absolute
+	top: 3px
+	height: 80px
+	width: 100%
+	background: transparent
+	z-index: 100
+	overflow: hidden
+	transform: translate3d(0,0,0)
+	+tr(height .5s)
+	+r(1024)
+		position: fixed
+		background: $menu-back
+		top: 0px
+		height: 60px
+	.is-menu-fixed &
+		background: $menu-back
+		position: fixed
+		top: 0
+		left: 0
+		right: 0
+	.fixfixed &
+		position: absolute
+
+
+
+	.header__inner
+		@extend %in
+		height: 100%
+	.header__row
+		height: 100%
+		text-align: right
+		text-align: center
+		+r(1024)
+			.active-menu &
+				overflow: auto
+		+rmin(1025)
+			+vertical
+			text-align: right
+	.header__logo
+		float: left
+		line-height: 0
+		margin-top: 28px
+		margin-left: 35px
+		+tr(transform .5)
+		transform: translate(100px, 0px)
+		.is-menu-fixed &
+			transform: translate(0px, 0px)
+		+r(1024)
+			transform: translate(0px, 0px)
+			margin-top: 17px
+		.svg-ionlogo
+			width: 44px
+			height: 26px
+			fill: white
+		a
+			text-decoration: none
+			display: block
+			height: auto
+			width: auto
+
+	.mobile__menu
+		display: none
+		+r(1024)
+			position: fixed
+			top: -35px
+			right: 25px
+			height: 30px
+			width: 30px
+			display: block
+			z-index: 103
+			cursor: pointer
+			-webkit-tap-highlight-color: rgba(0,0,0,0)
+			i
+				+hide-text
+				z-index: 102
+				color: white
+				height: 2px
+				width: 30px
+				background-color:  #fff
+				display: inline-block
+				vertical-align: middle
+				position: relative
+				cursor: pointer
+				box-shadow: 0px 0px 1px .5px white
+				+tr(rotate 1s linear top 0s)
+				.active-menu &
+					background-color:  transparent
+					box-shadow: none
+					&:before
+						@include rotate(-45)
+						top: 0px
+						box-shadow: none
+					&:after
+						@include rotate(45)
+						top: 0px
+						box-shadow: none
+				&:after,
+				&:before
+					content: ""
+					display: block
+					height: 2px
+					width: 30px
+					position: absolute
+					left: 0
+					background-color: #fff
+					+tr(all .1s linear)
+					box-shadow: 0px 0px 1px .5px white
+				&:before
+					top: -8px
+				&:after
+					top: 8px
+	.heeder__nav
+		+middle
+		line-height: 46px
+		transform: translate(255px, 0)
+		+tr(all .5s)
+		+r(1024)
+			transform: translate(0, 0)
+			clear: left
+			display: block
+			padding-top: 30px
+			height: calc(100% - 150px - 40px)
+			min-height: 342px
+			+vertical
+		.is-menu-fixed &
+			transform: translate(0, 0)
+		.nav
+			+r(1024)
+				transform: translate(0, 10px)
+				display: inline-block
+				vertical-align: middle
+				+tr(all 0.1s)
+				width: 96% 
+			.nav__item
+				display: inline-block
+				vertical-align: top
+				margin-right: 45px
+				letter-spacing: .5px
+				@extend %btn
+				+r(1024)
+					display: block
+					height: 60px
+					background-color: transparent
+					margin-right: 0
+					text-align: center
+
+				a
+					color: #fff
+					border: 1px solid transparent
+					text-decoration: none
+					font-size: 18px
+					+tr(all .5s)
+					+r(1024)
+						line-height: 60px
+
+
+					&:hover
+						opacity: .5
+					&.is-active
+						opacity: .5
+
+	.menu-btn
+		+line-height(46)
+		+translate(250%, 0)
+		+tr(all .5s)
+		visibility: hidden
+		+r(1024)
+			visibility: visible
+			+translate(0, 0)
+			margin-top: 50px
+			margin-bottom: 50px
+		.is-menu-fixed &
+			visibility: visible
+			+translate(0, 0)
+
+
+
+
+
+
